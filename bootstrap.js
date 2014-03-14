@@ -17,9 +17,7 @@ XPCOMUtils.defineLazyGetter(myServices, 'sss', function(){ return Cc['@mozilla.o
 function startup(aData, aReason) {
 	self.aData = aData;
 	console.log(self.aData);
-	var css = '.findbar-container {-moz-binding:url("' + self.aData.resourceURI.spec + 'findbar.xml#matchword")}';
-	//-moz-binding:url('chrome://matchcase/content/findbar.xml#matchword_xbl')
-	//var cssEnc = 'data:text/css;base64,' + window.btoa(css);
+	var css = '.findbar-container {-moz-binding:url(' + self.path.chrome + 'findbar.xml#matchword_xbl)}';
 	var cssEnc = encodeURIComponent(css);
 	var newURIParam = {
 		aURL: 'data:text/css,' + cssEnc,
